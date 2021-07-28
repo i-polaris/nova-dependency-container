@@ -133,7 +133,7 @@
 						return;
 					}
 
-					if (dependency.hasOwnProperty('value') && dependencyValue == dependency.value) {
+					if (dependency.hasOwnProperty('on') && dependencyValue == dependency.value) {
 						this.dependenciesSatisfied = true;
 						return;
 					}
