@@ -47,7 +47,7 @@ class NovaDependencyContainer extends Field
     {
         return $this->withMeta([
             'dependencies' => array_merge($this->meta['dependencies'], [
-                $this->getFieldLayout($field, $value)
+                array_merge($this->getFieldLayout($field), ['on' => $value]) 
             ])
         ]);
     }
