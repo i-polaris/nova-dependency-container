@@ -554,8 +554,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					}
 
 					if (dependency.hasOwnProperty('notEmpty') && dependencyValue) {
-						this.dependenciesSatisfied = true;
-						return;
+						if (Array.isArray(dependencyValue)) {
+							if (dependencyValue.length > 0) {
+								this.dependenciesSatisfied = true;
+								return;
+							}
+						} else {
+							this.dependenciesSatisfied = true;
+							return;
+						}
 					}
 
 					if (dependency.hasOwnProperty('nullOrZero') && 1 < [undefined, null, 0, '0'].indexOf(dependencyValue)) {
